@@ -1,26 +1,24 @@
 keywords:
 						terms		statements
-	defined/proved		def(ine)	prove
+	defined/proved		def(ine)	pr(o)v(e)
 
 	un[defin|prov]ed	prim(itive)	let
 	
-	well formed			formula		syntax
+	well formed			form(ula)	syn(tax)
 
 prim <statement>
 prim <term>
-syntax {syntax <statement>}
-syntax {prim <term>}
-syntax {def <term>;<statement>}
-syntax {let <statement>}
-syntax {prove <statement>|{<statement>}}
+form {<term>:<statement>}
+syn {<term>;<statment>}
+syn {syntax <statement>}
+syn {prim <term>}
+syn {def <term>;<statement>}
+syn {let <statement>}
+syn {prove <statement>|{<statement>}}
+syn {form <term>}
 prim <type-term>
 prim <object-term>
-formula {<type-term> <object-term>}
-prim \in
-syntax {object-term \in <type-term>}
-let {<type-term> \in <term>}
-let {<object-term> \in <term>}
-formula {<term>:<statement>}
+form {<type-term> <object-term>}
 
 
 the type of terms need to be mentioned only if it's not implied from syntax of a positive statement regarding it.
