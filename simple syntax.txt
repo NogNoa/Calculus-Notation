@@ -1,0 +1,31 @@
+keywords:
+						terms		statements
+	defined/proved		def(ine)	prove
+
+	un[defin|prov]ed	prim(itive)	let
+	
+	well formed			formula		syntax
+
+prim <statement>
+prim <term>
+syntax {syntax <statement>}
+syntax {prim <term>}
+syntax {def <term>;<statement>}
+syntax {let <statement>}
+syntax {prove <statement>|{<statement>}}
+prim <type-term>
+prim <object-term>
+formula {<type-term> <object-term>}
+prim \in
+syntax {object-term \in <type-term>}
+let {<type-term> \in <term>}
+let {<object-term> \in <term>}
+formula {<term>:<statement>}
+
+
+the type of terms need to be mentioned only if it's not implied from syntax of a positive statement regarding it.
+
+terms that are in english rather than symbolic have to have <> following the example of BNF
+escaped english words are stands-ins for symbols so they don't have to have them.
+
+the keywords and ; and : require enclosing their compund arguments (statements or terms) in {} rather than ()

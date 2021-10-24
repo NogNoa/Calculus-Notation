@@ -1,0 +1,2 @@
+DEF {seq(f)|nε{Naturals};seq(f)[n]=f(n) AND else}
+NTT {a=seq(f) /=> a_n=seq(f)[n]}
