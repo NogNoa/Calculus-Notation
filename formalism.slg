@@ -2,10 +2,10 @@ prim <set>
 prim <object>
 prim \in
 syn {<object> \in  <set>}
-let {\all x:S;x \in {\all x:S}}
+let {<set> A; A = {\all x:S} \iff (\all x:S;x \in A)}
 def {\nin;{<object> a, <set> A; a \nin A \iff \not(a \in A)}}
 prim \NN
-let {<set> A, B;{A=B \iff (\all A a;a \in B) \and (\all B b;b \in A)}}
+let {<set> A, B;{A=B \iff (\all a:a \in A;a \in B) \and (\all b:b \in b;b \in A)}}
 def {\emp;{\all <object> x; x \nin \emp}}
-def {\sbst;{<set> A, B;{A \sbst B \than (\all A a ; a \in B)}}
+def {\sbst;{<set> A, B;{A \sbst B \than (\all a:a \in A ; a \in B)}}
  
