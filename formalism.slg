@@ -5,7 +5,8 @@ syn {<object> \in  <set>}
 let {<set> A; A = {\all x:S} \iff (\all x:S;x \in A)}
 def {\nin;{<object> a, <set> A; a \nin A \iff \not(a \in A)}}
 prim \NN
-let {<set> A, B;{A=B \iff (\all a:a \in A;a \in B) \and (\all b:b \in b;b \in A)}}
-def {\emp;{\all <object> x; x \nin \emp}}
+let {<set> A, B;{A=B \iff (\all a:a \in A;a \in B) \and (\all b:b \in B;b \in A)}}
+def {<set> \emp;{\all <object> x; x \nin \emp}}
 def {\sbst;{<set> A, B;{A \sbst B \than (\all a:a \in A ; a \in B)}}
- 
+def {\union;{<set> A,B;A \union B = {x: (x \in A) \or (x \in B)} }}
+def {\isect;{<set> A,B;A \isect B = {x: (x \in A) \and (x \in B)} }}
