@@ -26,11 +26,13 @@ def {\times; {<set> A, B ; A \times B = {(a, b): a \in A \and b \in B} }}
 def {<set> <relation>;{<relation> R, <object> x,y \in A;{xRy \iff (x,y) \in R)}}}
 def {<set> <operation>;{<operation> F, <object> x,y; xFy \is <object>}}
 def {<relation> \on;{ <relation> R, <set> A; R \on A \iff R \sbst (A \times A)}}
-def {<relation> \on;{ <operation> F, <set> A; F \on A \iff (\exist xFy \iff x,y \in A \and xFy \in A)}} 
+def {<relation> \on;{ <operation> F, <set> A; F \on A \if (\all x,y \in A; \exist(xFy: xFy \in A))}} 
 def {<set> <comotative>;{<operation> F \in <comotative> \iff (\all <object> x,y; xFy=yFx)}}
 def {<set> <associative>;{<operation> F \in <associative> \iff (\all <object> x,y,z; (xFy)Fz=xF(yFz))}}
 syn {P(n): <statment> P, \NN n}
 let {P(0) \and ((\all \NN n; P(n)) \than P(n+1)) \than (\all \NN n; P(n))}
 
 /* Numbers */
-def {+;+ \on \NN
+def {+;+ \on \NN \and + \in <comotative> \and + \in <associative>}
+def {0;0 \in \NN \and (\all \NN n; n+0=n)}
+def {\ZZ; \ZZ ={x: {y \in \NN \or \y \in \ZZ; x+y=0}}}
