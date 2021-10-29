@@ -1,9 +1,10 @@
-/*Group Theory A*/
+/*Set Theory*/
 prim <set>
 prim <object>
 prim \in
 syn {<object> \in  <set>}
 def {\nin;{<object> a, <set> A; a \nin A \iff \not(a \in A)}}
+syn {a=b: a,b \is <object>}
 def {=;{<set> A, B;{A=B \iff (\all a:a \in A;a \in B) \and (\all b:b \in b;b \in A)}}}
 def {<set> \emp;{\all <object> x; x \nin \emp}}
 def {\sbst;{<set> A, B;{A \sbst B \than (\all a:a \in A ; a \in B)}}}
@@ -14,7 +15,7 @@ def {<disjoint>; A <disjoint> B \iff A \isect B = \emp}
 def {~; ~A = {x:x \nin A}}
 def {\\; A \\ B = A \isect ~B }
 
-/*Group Theory B*/
+/*From Sets to Numbers*/
 syn {|<set>|}
 prim \inf
 def {<set> \NN; \NN = {|A|:true} \\ {\inf:true} }
@@ -22,7 +23,14 @@ form {<set> <object>}
 	let {(A a) = (a:a \in A)}
 syn {(a, b): a, b \is <object>}
 def {\times; {<set> A, B ; A \times B = {(a, b): a \in A \and b \in B} }}
-def {<relation>;{<relation> R, <object> x,y \in A;{xRy \iff (x,y) \in R)}}}
-def {<operation>;<operation> F, <object> x,y; xFy \is <object>}
-def {\on;{ <relation> R, <set> A; R \on A \iff R \sbst (A \times A)}}
-def {\on;{ <operation> F, <set> A; F \on A \iff ((\all xFy;x,y \in A \and xFy \in A}} 
+def {<set> <relation>;{<relation> R, <object> x,y \in A;{xRy \iff (x,y) \in R)}}}
+def {<set> <operation>;{<operation> F, <object> x,y; xFy \is <object>}}
+def {<relation> \on;{ <relation> R, <set> A; R \on A \iff R \sbst (A \times A)}}
+def {<relation> \on;{ <operation> F, <set> A; F \on A \iff (\exist xFy \iff x,y \in A \and xFy \in A)}} 
+def {<set> <comotative>;{<operation> F \in <comotative> \iff (\all <object> x,y; xFy=yFx)}}
+def {<set> <associative>;{<operation> F \in <associative> \iff (\all <object> x,y,z; (xFy)Fz=xF(yFz))}}
+syn {P(n): <statment> P, \NN n}
+let {P(0) \and ((\all \NN n; P(n)) \than P(n+1)) \than (\all \NN n; P(n))}
+
+/* Numbers */
+def {+;+ \on \NN
