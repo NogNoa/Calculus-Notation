@@ -17,8 +17,10 @@ def {\\; A \\ B = A \isect ~B }
 /*Group Theory B*/
 syn {|<set>|}
 prim \inf
-def {<set> \NN; \NN = {|A|: A \is <set>} \\ {\inf:true} }
+def {<set> \NN; \NN = {|A|:true} \\ {\inf:true} }
 form {<set> <object>}
-let {(A a) = (a:a \in A)}
+	let {(A a) = (a:a \in A)}
 syn {(a, b): a, b \is <object>}
 def {\times; {<set> A, B ; A \times B = {(a, b): a \in A \and b \in B} }}
+syn {xRy}
+	let {x,y \in A;{xRy \iff (x,y) in R)}}
