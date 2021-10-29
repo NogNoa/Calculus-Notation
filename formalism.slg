@@ -1,3 +1,4 @@
+#Group theory
 prim <set>
 prim <object>
 prim \in
@@ -10,3 +11,5 @@ def {<set> \emp;{\all <object> x; x \nin \emp}}
 def {\sbst;{<set> A, B;{A \sbst B \than (\all a:a \in A ; a \in B)}}
 def {\union;{<set> A,B;A \union B = {x: (x \in A) \or (x \in B)} }}
 def {\isect;{<set> A,B;A \isect B = {x: (x \in A) \and (x \in B)} }}
+def {<disjoint>; A <disjoint> B \iff A \isect B = \emp}
+def {\\; A \\ B = A \isect {x:x \nin B} }
