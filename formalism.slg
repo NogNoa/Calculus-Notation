@@ -35,4 +35,4 @@ let {P(0) \and ((\all \NN n; P(n)) \than P(n+1)) \than (\all \NN n; P(n))}
 /* Numbers */
 def {+;+ \on \NN \and + \in <comotative> \and + \in <associative>}
 def {0;0 \in \NN \and (\all \NN n; n+0=n)}
-def {\ZZ; \ZZ ={x: {y \in \NN \or \y \in \ZZ; x+y=0}}}
+def {\ZZ;{\all y;{ y \in (\NN \union \ZZ) \exist x \in \ZZ ; x+y=0}}}
