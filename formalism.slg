@@ -22,4 +22,7 @@ form {<set> <object>}
 	let {(A a) = (a:a \in A)}
 syn {(a, b): a, b \is <object>}
 def {\times; {<set> A, B ; A \times B = {(a, b): a \in A \and b \in B} }}
-def {<relation>;{<relation> R;{x,y \in A;{xRy \iff (x,y) in R)}}}}
+def {<relation>;{<relation> R, <object> x,y \in A;{xRy \iff (x,y) \in R)}}}
+def {<operation>;<operation> F, <object> x,y; xFy \is <object>}
+def {\on;{ <relation> R, <set> A; R \on A \iff R \sbst (A \times A)}}
+def {\on;{ <operation> F, <set> A; F \on A \iff ((xFy \is <WF>) \iff x,y \in A) \and (xFy) \in A}} 
