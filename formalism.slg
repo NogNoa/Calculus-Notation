@@ -35,4 +35,13 @@ let {P(0) \and ((\all \NN n; P(n)) \than P(n+1)) \than (\all \NN n; P(n))}
 /* Numbers */
 def {+;+ \on \NN \and + \in <comotative> \and + \in <associative>}
 def {0;0 \in \NN \and (\all \NN n; n+0=n)}
-def {\ZZ;{\all y;{ y \in (\NN \union \ZZ) \exist x \in \ZZ ; x+y=0}}}
+def {\ZZ;{\all y: y \in (\NN \union \ZZ);{\exist_1 x:x \in \ZZ \and x+y=0}}}
+prv {\NN \sbst \ZZ |{sup {n \in \NN} \trfr n \in (\NN \union \ZZ) \trfr (\exist_1 \ZZ m :n+m=0) \trfr (\exist_1 \ZZ s: s+m=0) \trfr s=n \trfr n \in \ZZ}}
+def {*;* \on \ZZ \and * \in <comotative> \and + \in <associative>}
+def {1;1 \in \NN \and (\all \NN n; n*1=n)}
+def {\QQ;{\all y: y \in (\ZZ \union \QQ);{\exist_1 x:x \in \QQ \and x*y=1}}}
+prv {\ZZ \sbst \QQ}
+prv {+ \on \QQ}
+prv {* \on \QQ}
+prv {q:q*q=2;q \nin \QQ}
+def {\RR: +,* on \RR}
