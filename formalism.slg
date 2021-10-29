@@ -3,11 +3,11 @@ prim <set>
 prim <object>
 prim \in
 syn {<object> \in  <set>}
-let {<set> A; A = {\all x:S} \iff (\all x:S;x \in A)}
+let {<set> A = {x:S} \iff (\all x:S;x \in A)}
 def {\nin;{<object> a, <set> A; a \nin A \iff \not(a \in A)}}
 let {<set> A, B;{A=B \iff (\all a:a \in A;a \in B) \and (\all b:b \in b;b \in A)}}
 def {<set> \emp;{\all <object> x; x \nin \emp}}
-def {\sbst;{<set> A, B;{A \sbst B \than (\all a:a \in A ; a \in B)}}
+def {\sbst;{<set> A, B;{A \sbst B \than (\all a:a \in A ; a \in B)}}}
 def {\union;{<set> A,B;A \union B = {x: (x \in A) \or (x \in B)} }}
 def {\isect;{<set> A,B;A \isect B = {x: (x \in A) \and (x \in B)} }}
 def {<disjoint>; A <disjoint> B \iff A \isect B = \emp}
@@ -15,8 +15,9 @@ def {~; ~A = {x:x \nin A}}
 def {\\; A \\ B = A \isect ~B }
 
 /*Number*/
-syntax{|<set>|}
-def {<set> \NN; {\all <set> A; |A| \in \NN}}
+syn {|<set>|}
+prim \inf
+def {<set> \NN= {|A|:A = <set> A} \\ {x:x = \inf} }
 form {<set> <object>}
 let {(A a) = (a:a \in A)}
 
