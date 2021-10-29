@@ -1,4 +1,4 @@
-/*Group theory*/
+/*Group Theory A*/
 prim <set>
 prim <object>
 prim \in
@@ -14,10 +14,10 @@ def {<disjoint>; A <disjoint> B \iff A \isect B = \emp}
 def {~; ~A = {x:x \nin A}}
 def {\\; A \\ B = A \isect ~B }
 
-/*Number*/
+/*Group Theory B*/
 syn {|<set>|}
 prim \inf
-def {<set> \NN= {|A|:A = <set> A} \\ {x:x = \inf} }
+def {<set> \NN; \NN = {|A|:<set> A} \\ {\inf:true} }
 form {<set> <object>}
 let {(A a) = (a:a \in A)}
-
+syn {(a, b):A a \and B b}
