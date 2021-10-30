@@ -29,19 +29,19 @@ def {<relation> \on;{ <relation> R, <set> A; R \on A \iff R \sbst (A \times A)}}
 def {<relation> \on;{ <operation> F, <set> A; F \on A \if (\all x,y \in A; \exist(xFy: xFy \in A))}} 
 def {<set> <comotative>;{<operation> F \in <comotative> \iff (\all <object> x,y; xFy=yFx)}}
 def {<set> <associative>;{<operation> F \in <associative> \iff (\all <object> x,y,z; (xFy)Fz=xF(yFz))}}
-syn {P(n): <statment> P, \NN n}
-let {P(0) \and ((\all \NN n; P(n)) \than P(n+1)) \than (\all \NN n; P(n))}
 
 /* Numbers */
-def {+;+ \on \NN \and + \in <comotative> \and + \in <associative>}
-def {0;0 \in \NN \and (\all \NN n; n+0=n)}
-def {\ZZ;{\all y: y \in (\NN \union \ZZ);{\exist_1 x:x \in \ZZ \and x+y=0}}}
+def {<operation> +;+ \on \NN \and + \in <comotative> \and + \in <associative>}
+def {\NN 0;\all \NN n; n+0=n}
+def {<set> \ZZ;{\all y: y \in (\NN \union \ZZ);{\exist_1 x:x \in \ZZ \and x+y=0}}}
 prv {\NN \sbst \ZZ |{sup {n \in \NN} \trfr n \in (\NN \union \ZZ) \trfr (\exist_1 \ZZ m :n+m=0) \trfr (\exist_1 \ZZ s: s+m=0) \trfr s=n \trfr n \in \ZZ}}
-def {*;* \on \ZZ \and * \in <comotative> \and + \in <associative>}
-def {1;1 \in \NN \and (\all \NN n; n*1=n)}
-def {\QQ;{\all y: y \in (\ZZ \union \QQ);{\exist_1 x:x \in \QQ \and x*y=1}}}
+def {<operation> *;* \on \ZZ \and * \in <comotative> \and + \in <associative>}
+def {\NN 1;\all \NN n; n*1=n}
+def {<set> \QQ;{\all y: y \in (\ZZ \union \QQ);{\exist_1 x:x \in \QQ \and x*y=1}}}
 prv {\ZZ \sbst \QQ}
 prv {+ \on \QQ}
 prv {* \on \QQ}
 prv {q:q*q=2;q \nin \QQ}
-def {\RR: +,* on \RR}
+def {<set> \RR: +,* \on \RR}
+syn {P(n): <statment> P, \NN n}
+let {P(0) \and ((\all \NN n; P(n)) \than P(n+1)) \than (\all \NN n; P(n))}
