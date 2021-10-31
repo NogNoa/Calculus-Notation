@@ -1,0 +1,6 @@
+<term> ::= <type-term>|<object-term>|<type-term> <object-term>|<term>":"<statement>
+<statement> ::= <term-declaration> | <statement-declaration> | <term>";"<statment> | <argument>
+<term-declaration> ::= "prim" <term>|"def" <term>";"<statement> | "form" <term> <term>
+<statement-declaration> ::= "let" <statement> | "syn" <statement>
+<argument> ::= "prv" <statement>"|"<deduction>
+<deduction> ::= <statement> "\trfr" <statement> | <statement> "\trfr" <deduction> | <deduction> "\trfr" "false"
