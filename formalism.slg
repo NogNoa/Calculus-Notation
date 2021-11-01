@@ -58,21 +58,28 @@ prv {+ \on \QQ}
 prv {* \on \QQ}
 def {<reduced-fraction> (p, q): p,q \in \ZZ \and \nexist (x:p/x \in \ZZ \and q/x \in \ZZ)}
 prv {r:r*r=2; r \nin \QQ|
-	{	r\in \QQ
+	{	r\in \QQ \and
 	prv {r;exist <reduced-fraction> (p/q):p/q=r|
 			{	\nexist <reduced-fraction> (p/q):p/q=r \trfr
 				r =p/q;\not <reduced-fraction> (p/q) \trfr
-				\all x;r =(p/x)/(q/x): \ZZ p/x,q/x \trfr
+				\all x;r =(p/x)/(q/x): \ZZ p/x,q/x \and
 				prv {p/x \nin \ZZ|
-				{	x>p \and x>0 \trfr
-					1 > p/x \and -1 \< -p/x
-					\and (p/x \neq 0 \if r \neq 0) 
+					{	x>p \and x>0 \trfr
+						1 > p/x \and -1 \< -p/x
+						\and (p/x \neq 0 \if r \neq 0) 
+					}
 				}
 				false
-			}\trfr
+			}
+		} \trfr
 			r*r=(p*p)/(q*q)=2 \trfr
 			(p*p)=2*q*q \trfr
-			p=2*(q*q/p)=2*(q/r)
+			{	p/2=(q*q/p)=(q/r) \and
+				{let q/r \in \NN \trfr \exist 2:p/2 \in \ZZ} 
+			} \trfr
+			2*(q/r)*2*(q/r)=2*q*q \trfr
+			2*(q/r)*(q/r)=p*p \trfr
+			2*q*q
 	...
 }
 def {<set> \RR: +,* \on \RR}
