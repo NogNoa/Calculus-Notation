@@ -51,10 +51,30 @@ prv {\NN \sbst \ZZ |
 def {<operation> *; * \on \ZZ \and * \in <comotative> \and + \in <associative>}
 def {\NN 1; \all \NN n; n*1=n}
 def {<set> \QQ; {\all y: y \in (\ZZ \union \QQ); {\exist_1 x:x \in \QQ \and x*y=1}}}
+prv {\all r \in QQ; {\exist (\ZZ p, q: q*r=p)
+form{p/q:(p,q \in \ZZ) ?= \QQ r:q*r=p}
 prv {\ZZ \sbst \QQ}
 prv {+ \on \QQ}
 prv {* \on \QQ}
-prv {q:q*q=2; q \nin \QQ}
+def {<reduced-fraction> (p, q): p,q \in \ZZ \and \nexist (x:p/x \in \ZZ \and q/x \in \ZZ)}
+prv {r:r*r=2; r \nin \QQ|
+	{	r\in \QQ
+	prv {r;exist <reduced-fraction> (p/q):p/q=r|
+			{	\nexist <reduced-fraction> (p/q):p/q=r \trfr
+				r =p/q;\not <reduced-fraction> (p/q) \trfr
+				\all x;r =(p/x)/(q/x): \ZZ p/x,q/x \trfr
+				prv {p/x \nin \ZZ|
+				{	x>p \and x>0 \trfr
+					1 > p/x \and -1 \< -p/x
+					\and (p/x \neq 0 \if r \neq 0) 
+				}
+				false
+			}\trfr
+			r*r=(p*p)/(q*q)=2 \trfr
+			(p*p)=2*q*q \trfr
+			p=2*(q*q/p)=2*(q/r)
+	...
+}
 def {<set> \RR: +,* \on \RR}
 syn {P(n): <statment> P, \NN n}
 let {P(0) \and ((\all \NN n; P(n)) \than P(n+1)) \than (\all \NN n; P(n))}
