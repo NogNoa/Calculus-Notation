@@ -33,12 +33,21 @@ def {<set> <associative>; {<operation> F \in <associative> \iff (\all <object> x
 def {<operation> +; + \on \NN \and + \in <comotative> \and + \in <associative>}
 def {\NN 0; \all \NN n; n+0=n}
 def {<set> \ZZ; {\all y: y \in (\NN \union \ZZ); {\exist_1 x:x \in \ZZ \and x+y=0}}}
+
 prv {\NN \sbst \ZZ |
-	{	prv { {\all n:n \in \NN; n \in \Z}|
-			{ {n \in \NN} \trfr {n \in (\NN \union \ZZ)} \trfr {\exist_1 \ZZ m :n+m=0} \trfr {\exist_1 \ZZ s: s+m=0} \trfr {s=n} \trfr {n \in \ZZ} }
-		} \trfr {\NN \sbst \ZZ}
+	{	prv { {\all n: n \in \NN; n \in \ZZ} |
+			{	n \in \NN \trfr 
+				n \in (\NN \union \ZZ)\trfr 
+				\exist_1 \ZZ m: n+m=0 \trfr 
+				\exist_1 \ZZ s: s+m=0 \trfr 
+				s=n \trfr 
+				n \in \ZZ 
+			}
+		} \trfr 
+		\NN \sbst \ZZ
 	}
 }
+
 def {<operation> *; * \on \ZZ \and * \in <comotative> \and + \in <associative>}
 def {\NN 1; \all \NN n; n*1=n}
 def {<set> \QQ; {\all y: y \in (\ZZ \union \QQ); {\exist_1 x:x \in \QQ \and x*y=1}}}
