@@ -56,7 +56,7 @@ form{(\ZZ p)/(\ZZ q)?= \QQ r:q*r=p}
 prv {\ZZ \sbst \QQ}
 prv {+ \on \QQ}
 prv {* \on \QQ}
-def {<reduced-fraction> (p, q); p,q \in \ZZ \and \nexist (x:p/x \in \ZZ \and q/x \in \ZZ)}
+def {<reduced-fraction> (p/q); p,q \in \ZZ \and \nexist (x:p/x \in \ZZ \and q/x \in \ZZ)}
 
 prv {r;exist <reduced-fraction> (p/q):p/q=r|
 	{	\nexist <reduced-fraction> (p/q):p/q=r \trfr
@@ -72,7 +72,21 @@ prv {r;exist <reduced-fraction> (p/q):p/q=r|
 		false
 	}
 }
-prv {r:r*r=2; r \nin \QQ}
+prv {r:r*r=2; r \nin \QQ|
+	r \in \QQ \trfr
+	\exist <reduced-fraction> p/q:p/q=r \trfr
+	p*p/q/q=2 \trfr
+	{	p*p=2*q*q \and
+		{prv (p; p*p=2*n: n \in \ZZ) \than (p; \exist \ZZ k: p=2k)}
+	} \trfr
+	p=2k: k \in \ZZ \trfr
+	(2k)*(2k)= 2q*q \trfr
+	2*k*k=q*q \trfr 
+	\exist \ZZ m: q=2m \trfr
+	(p/2)/(q/2)=k/m: k,m \in \ZZ \trfr
+	p/q \nin <reduced-fraction> \trfr 
+	false
+}
 def {<set> \RR: +,* \on \RR}
 syn {P(n): <statment> P, \NN n}
 let {P(0) \and ((\all \NN n; P(n)) \than P(n+1)) \than (\all \NN n; P(n))}
