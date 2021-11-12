@@ -52,8 +52,8 @@
             <WordsStyle name="FOLDER IN CODE2" fgColor="000000" bgColor="FFFFFF" fontStyle="0" nesting="0" />
             <WordsStyle name="FOLDER IN COMMENT" fgColor="000000" bgColor="FFFFFF" fontStyle="0" nesting="0" />
             <WordsStyle name="DELIMITERS1" fgColor="FF8080" bgColor="2A2A2A" fontName="Lato" fontStyle="2" nesting="0" />
-            <WordsStyle name="DELIMITERS2" fgColor="D2A8D9" bgColor="2A2A2A" fontStyle="2" nesting="16780295" />
-            <WordsStyle name="DELIMITERS3" fgColor="9BA4DB" bgColor="2A2A2A" fontStyle="2" nesting="16777223" />
+            <WordsStyle name="DELIMITERS2" fgColor="D2A8D9" bgColor="2A2A2A" fontName="Cascadia Mono PL" fontStyle="0" nesting="16780295" />
+            <WordsStyle name="DELIMITERS3" fgColor="9BA4DB" bgColor="2A2A2A" fontName="Cascadia Code PL Light" fontStyle="0" nesting="16777223" />
             <WordsStyle name="DELIMITERS4" fgColor="BBD7CE" bgColor="2A2A2A" fontStyle="0" nesting="0" />
             <WordsStyle name="DELIMITERS5" fgColor="000000" bgColor="FFFFFF" fontStyle="0" nesting="0" />
             <WordsStyle name="DELIMITERS6" fgColor="000000" bgColor="FFFFFF" fontStyle="0" nesting="0" />
