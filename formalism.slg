@@ -5,21 +5,21 @@ prim \in
 syn {<object> \in  <set>}
 def {\nin; {<object> a, <set> A; a \nin A \iff \not(a \in A)}}
 syn {a=b: a,b \is <object>}
-def {=; {<set> A, B; {A=B \iff (\all a:a \in A;a \in B) \and (\all b:b \in b;b \in A)}}}
-def {<set> \emp;{\all <object> x; x \nin \emp}}
-def {\sbst; {<set> A, B; {A \sbst B \than (\all a:a \in A; a \in B)}}}
-form {{ {<object> x:<statment> S} } ?= <set> A:(\all x:S;x \in A)} 
-def {\union; {<set> A,B; A \union B = {x: (x \in A) \or (x \in B)}}}
-def {\isect; {<set> A,B; A \isect B = {x: (x \in A) \and (x \in B)}}}
+def {=; {<set> A, B; {A=B \iff (\all a:a \in A; a \in B) \and (\all b: b \in b; b \in A)}}}
+def {<set> \emp; {\all <object> x; x \nin \emp}}
+def {\sbst; {<set> A, B; {A \sbst B \than (\all a: a \in A; a \in B)}}}
+form {{ {<object> x: <statment> S} } ?= <set> A:(\all x: S; x \in A)} 
+def {\union; {<set> A,B; A \union B = {x: (x \in A) \or (x \in B)} }}
+def {\isect; {<set> A,B; A \isect B = {x: (x \in A) \and (x \in B)} }}
 def {<disjoint>; (A <disjoint> B) \iff (A \isect B = \emp)}
-def {~; ~A = {x:x \nin A}}
+def {~; ~A = {x: x \nin A} }
 def {\\; A \\ B = A \isect ~B}
 
 /*From Sets to Numbers*/
 syn {|<set>|}
 prim \inf
-def {<set> \NN; \NN = {|A|:true} \\ {\inf:true}}
-form {<set> A <object> a ?= a:a \in A}
+def {<set> \NN; \NN = {|A|: true} \\ {\inf: true} }
+form {<set> A <object> a ?= a: a \in A}
 syn {(a, b): a, b \is <object>}
 def {\times; {<set> A, B; A \times B = {(a, b): a \in A \and b \in B}}}
 def {<set> <relation>; {<relation> R, <object> x,y \in A; {xRy \iff (x,y) \in R)}}}
@@ -50,18 +50,18 @@ prv {\NN \sbst \ZZ |
 
 def {<operation> *; * <on> \ZZ \and * \in <comotative> \and + \in <associative>}
 def {\NN 1; \all \NN n; n*1=n}
-def {<set> \QQ; {\all y: y \in (\ZZ \union \QQ); {\exist_1 x:x \in \QQ \and x*y=1}}}
+def {<set> \QQ; {\all y: y \in (\ZZ \union \QQ); {\exist_1 x: x \in \QQ \and x*y=1}}}
 prv {\all r \in QQ; {\exist (\ZZ p, q: q*r=p)
 form{(\ZZ p)/(\ZZ q)?= \QQ r:q*r=p}
 prv {\ZZ \sbst \QQ}
 prv {+ <on> \QQ}
 prv {* <on> \QQ}
-def {<reduced-fraction> (p/q); p,q \in \ZZ \and \nexist (x:p/x \in \ZZ \and q/x \in \ZZ)}
+def {<reduced-fraction> (p/q); p,q \in \ZZ \and \nexist (x: p/x \in \ZZ \and q/x \in \ZZ)}
 
-prv {r;exist <reduced-fraction> (p/q):p/q=r|
-	{	\nexist <reduced-fraction> (p/q):p/q=r \trfr
-		r =p/q;\not (p/q) \is <reduced-fraction>  \trfr
-		{	\exist x:(r =(p/x)/(q/x): p/x, q/x \in \ZZ) \and
+prv {r; exist <reduced-fraction> (p/q): p/q=r|
+	{	\nexist <reduced-fraction> (p/q): p/q=r \trfr
+		r =p/q; \not (p/q) \is <reduced-fraction>  \trfr
+		{	\exist x: (r =(p/x)/(q/x): p/x, q/x \in \ZZ) \and
 			prv {p/x \nin \ZZ|
 				{	x>p \and x>0 \trfr
 					1 > p/x \and -1 \< -p/x
@@ -72,9 +72,9 @@ prv {r;exist <reduced-fraction> (p/q):p/q=r|
 		false
 	}
 }
-prv {r:r*r=2; r \nin \QQ|
+prv {r: r*r=2; r \nin \QQ|
 	r \in \QQ \trfr
-	\exist <reduced-fraction> p/q:p/q=r \trfr
+	\exist <reduced-fraction> p/q: p/q=r \trfr
 	p*p/q/q=2 \trfr
 	{	p*p=2*q*q \and
 		{prv (p; p*p=2*n: n \in \ZZ) \than (p; \exist \ZZ k: p=2k)}
