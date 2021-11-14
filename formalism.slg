@@ -24,13 +24,13 @@ syn {(a, b): a, b \is <object>}
 def {\times; {<set> A, B; A \times B = {(a, b): a \in A \and b \in B}}}
 def {<set> <relation>; {<relation> R, <object> x,y \in A; {xRy \iff (x,y) \in R)}}}
 def {<set> <operation>; {<operation> F, <object> x,y; xFy \is <object>}}
-def {<relation> \on; { <relation> R, <set> A; R \on A \iff R \sbst (A \times A)}}
-def {<relation> \on; { <operation> F, <set> A; F \on A \if (\all x,y \in A; \exist(xFy: xFy \in A))}} 
+def {<relation> <on>; { <relation> R, <set> A; R <on> A \iff R \sbst (A \times A)}}
+def {<relation> <on>; { <operation> F, <set> A; F <on> A \if (\all x,y \in A; \exist(xFy: xFy \in A))}} 
 def {<set> <comotative>; {<operation> F \in <comotative> \iff (\all <object> x,y; xFy=yFx)}}
 def {<set> <associative>; {<operation> F \in <associative> \iff (\all <object> x,y,z; (xFy)Fz=xF(yFz))}}
 
 /* Numbers */
-def {<operation> +; + \on \NN \and + \in <comotative> \and + \in <associative>}
+def {<operation> +; + <on> \NN \and + \in <comotative> \and + \in <associative>}
 def {\NN 0; \all \NN n; n+0=n}
 def {<set> \ZZ; {\all y: y \in (\NN \union \ZZ); {\exist_1 x:x \in \ZZ \and x+y=0}}}
 
@@ -48,14 +48,14 @@ prv {\NN \sbst \ZZ |
 	}
 }
 
-def {<operation> *; * \on \ZZ \and * \in <comotative> \and + \in <associative>}
+def {<operation> *; * <on> \ZZ \and * \in <comotative> \and + \in <associative>}
 def {\NN 1; \all \NN n; n*1=n}
 def {<set> \QQ; {\all y: y \in (\ZZ \union \QQ); {\exist_1 x:x \in \QQ \and x*y=1}}}
 prv {\all r \in QQ; {\exist (\ZZ p, q: q*r=p)
 form{(\ZZ p)/(\ZZ q)?= \QQ r:q*r=p}
 prv {\ZZ \sbst \QQ}
-prv {+ \on \QQ}
-prv {* \on \QQ}
+prv {+ <on> \QQ}
+prv {* <on> \QQ}
 def {<reduced-fraction> (p/q); p,q \in \ZZ \and \nexist (x:p/x \in \ZZ \and q/x \in \ZZ)}
 
 prv {r;exist <reduced-fraction> (p/q):p/q=r|
@@ -87,6 +87,6 @@ prv {r:r*r=2; r \nin \QQ|
 	p/q \nin <reduced-fraction> \trfr 
 	false
 }
-def {<set> \RR: +,* \on \RR}
+def {<set> \RR: +,* <on> \RR}
 syn {P(n): <statment> P, \NN n}
 let {P(0) \and ((\all \NN n; P(n)) \than P(n+1)) \than (\all \NN n; P(n))}
