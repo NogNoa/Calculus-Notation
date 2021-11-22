@@ -1,8 +1,40 @@
 prim {<operator> <derivative>}
 form {a x <drivative>: <formula> a, x}
+form {0 a - ?= a ~}
+form {1 a / ?= a /div}
 form {a <drv-x> ?= a x <drivative>}
 form {a b + <drv-x> ?= a <drv-x> b <drv-x> +}
 form {a b * <drv-x> ?= a <drv-x> b * a b <drv-x> * +}
 form {a b ^ <drv-x> ?= a b 1 - ^ a <drv-x> * b *}
-form { 
+form {b ~ <drv-x> ?= b <drv-x> ~}
+form {b /div <drv-x> ?= b 1 ~ ^ <drv-x>}
+{
+	a b - <drv-x> ?=
+	a b ~ + <drv-x> ?=
+	a <drv-x> b ~ <drv-x> + ?=
+	a <drv-x> b <drv-x> ~ +
+}
+{
+	b /div <drv-x> ?=
+	b 1 ~ ^ <drv-x> ?=
+	b 1 ~ 1 - ^ b <drv-x> * 1 ~ * ?=
+	b 2 ~     ^ b <drv-x> *   ~ ?=
+	b 2 ^  /div b <drv-x> *   ~ ?=
+	b <drv-x> b 2 ^ \         ~
+}
+{
+	a b / <drv-x> ?=
+	a b /div * <drv-x> ?=
+	a <drv-x> b /div * a b /div <drv-x> * + ?=
+	a <drv-x> b \      a b <drv-x> b 2 ^ \ ~ * + ?=
+	a <drv-x>          a b <drv-x> b \ ~ * + b \ ?=
+} 
+{
+	a b /root  <drv-x> ?=
+	a b /div ^ <drv-x> ?=
+	a b /div 1 - ^ a <drv-x> * b /div * ?=
+	a 1 b \ b b \ - ^ a <drv-x> * b \ ?=
+	a 1 b - b \  ^ a <drv-x> * b \ ?=
+}
+
 
