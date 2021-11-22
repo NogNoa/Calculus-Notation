@@ -1,6 +1,7 @@
-def {<type> <derivative>; <derivative> \sbst <operator>}
-syn {a x <drv>: <formula> a, x <derivative> 
-syn {a <drv> = d: <formula> a, d}
-let {a b + <drv> = a <drv> b <drv> +}
-let {a b * <drv> = a <drv> b 
+prim {<operator> <derivative>}
+form {a x <drivative>: <formula> a, x}
+let {(a x <derivative>) \is <formula>}
+form {a <drv-x> ?= a x <drivative>}
+let {a b + <drv-x> = a <drv-x> b <drv-x> +}
+let {a b * <drv-x> = a <drv-x> b * a b <drv-x> * + 
 
