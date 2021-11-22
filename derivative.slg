@@ -1,5 +1,5 @@
-prim {<operator> <derivative>}
-form {<drv> ?= <derivative>}
+def {<type> <derivative>; <derivative> \sbst <operator>}
+syn {a x <drv>: <formula> a, x <derivative> 
 syn {a <drv> = d: <formula> a, d}
 let {a b + <drv> = a <drv> b <drv> +}
 let {a b * <drv> = a <drv> b 
