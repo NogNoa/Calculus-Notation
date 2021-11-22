@@ -1,0 +1,6 @@
+prim {<operator> <derivative>}
+form {<drv> ?= <derivative>}
+syn {a <drv> = d: <formula> a, d}
+let {a b + <drv> = a <drv> b <drv> +}
+let {a b * <drv> = a <drv> b 
+
