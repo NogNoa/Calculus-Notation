@@ -6,37 +6,74 @@ form {a x <drivative>: <formula> a, x}
 let  {\all <formula> c: \not x <inc-in> c; c x <derivative> = 0}
 form {a <drv-x> ?= a x <drivative>}
 form {a b + <drv-x> ?= a <drv-x> b <drv-x> +}
+
+prv 
+{<formula> a, n: \not x <inc-in> n; a n * <drv-x> ?= a <drv-x> n * |
+	{	prv 
+		{
+		a 1 * <drv-x> ?=
+		a <drv-x> 1 * |
+			{
+			a 1 * <drv-x> ?=
+			a     <drv-x> ?=
+			a     <drv-x> 1 *
+			}
+		}
+		prv 
+		{
+		(a n     * <drv-x> ?= a <drv-x> n *) \than
+		(a n 1 + * <drv-x> ?= a <drv-x> n 1 + *) |
+			{
+			a n 1 + * <drv-x> ?=
+			a n     * <drv-x> a 1 * <drv-x> + ?=
+			a <drv-x> n *     a     <drv-x> + ?=
+			a <drv-x> n 1 + *
+			}
+		}
+	}
+}
+
 form {a b * <drv-x> ?= a <drv-x> b * a b <drv-x> * +}
 form {a b ^ <drv-x> : (\not x <inc-in> b) ?= a b 1 - ^ a <drv-x> * b *}
 form {b ~ <drv-x> ?= b <drv-x> ~}
 form {b /div <drv-x> ?= b 1 ~ ^ <drv-x>}
-{
+prv { a b - <drv-x> ?= a <drv-x> b <drv-x> - |
+	{
 	a b - <drv-x> ?=
 	a b ~ + <drv-x> ?=
 	a <drv-x> b ~ <drv-x> + ?=
-	a <drv-x> b <drv-x> ~ +
+	a <drv-x> b <drv-x> ~ + ?=
+	a <drv-x> b <drv-x> -
+	}
 }
-{
+prv { b /div <drv-x> ?= b <drv-x> b 2 ^ \ ~ |
+	{
 	b /div <drv-x> ?=
 	b 1 ~ ^ <drv-x> ?=
 	b 1 ~ 1 - ^ b <drv-x> * 1 ~ * ?=
 	b 2 ~     ^ b <drv-x> *   ~ ?=
 	b 2 ^  /div b <drv-x> *   ~ ?=
 	b <drv-x> b 2 ^ \         ~
+	}
 }
-{
+prv { a b / <drv-x> ?= a <drv-x> a b <drv-x> b \ ~ * + b \ |
+	{
 	a b / <drv-x> ?=
 	a b /div * <drv-x> ?=
 	a <drv-x> b /div * a b /div <drv-x> * + ?=
 	a <drv-x> b \      a b <drv-x> b 2 ^ \ ~ * + ?=
 	a <drv-x>          a b <drv-x> b \ ~ * + b \ ?=
+	}
 } 
-{
-	a b /root <drv-x>: (\not x <inc-in> b) ?=
+prv {<formula> a, b : (\not x <inc-in> b) ;a b /root <drv-x> ?= a 1 b - b \  ^ a <drv-x> * b \ |
+	{
+	a b /root <drv-x> ?=
 	a b /div ^ <drv-x> ?=
 	a b /div 1 - ^ a <drv-x> * b /div * ?=
 	a 1 b \ b b \ - ^ a <drv-x> * b \ ?=
 	a 1 b - b \  ^ a <drv-x> * b \ ?=
+	}
 }
+
 
 
