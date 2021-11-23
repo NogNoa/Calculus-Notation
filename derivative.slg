@@ -49,8 +49,18 @@ prv
 		}
 	{	prv
 		{<formula> a, n : (\not x <inc-in> n);
-		
-	
+		 a n ^ <drv-x> ?= a n 1 - ^ a <drv-x> * n * \than
+		 a n 1 + ^ <drv-x> ?= a n 1 + 1 - ^ a <drv-x> * n 1 + *
+			{ 
+			a n 1 + ^ <drv-x> ?=
+			a n ^ a * <drv-x> ?=
+			a n ^ <drv-x>             a * a n ^ a <drv-x> * + ?=
+			a n     1 - ^ a <drv-x> * n * a * a n ^ a <drv-x> * + ?=
+			a n         ^ a <drv-x> * n *     a n ^ a <drv-x> * + ?=
+			a n         ^ a <drv-x> * n 1 + * ?=
+			a n 1 + 1 - ^ a <drv-x> * n 1 + *
+			}
+		}
 	}
 }
 
