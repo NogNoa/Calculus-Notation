@@ -84,9 +84,9 @@ prv { b /div <drv-x> ?= b <drv-x> b 2 ^ \ ~ |
 	b <drv-x> b 2 ^ \         ~
 	}
 }
-prv { a b / <drv-x> ?= a <drv-x> a b <drv-x> b \ ~ * + b \ |
+prv { a b \ <drv-x> ?= a <drv-x> a b <drv-x> b \ ~ * + b \ |
 	{
-	a        b /      <drv-x> ?=
+	a        b \      <drv-x> ?=
 	a        b /div * <drv-x> ?=
 	a <drv-x> b /div * a b /div <drv-x>      * + ?=
 	a <drv-x> b \      a b <drv-x> b 2 ^ \ ~ * + ?=
@@ -117,9 +117,14 @@ prv {n a ^ <drv-x> : \not x <inc-in> n ?= n a ^ a <drv-x> * n e <log> * |
 	n			  a ^ a <drv-x> *           n e <log>             *
 	}
 }
-form {x e log <drv-x> ?= x /div}
+form {a e log <drv-x> ?= a <drv-x> a \}
 
-prv {a e log <drv-x> ?= a <drv-x> a \ |
-
+prv {a n log <drv-x> ?= a <drv-x> a \ n e log \ |
+	{
+	a n log <drv-x> ?=
+	a e log n e log \ <drv-x>
+	
+	}
+}
 
 
