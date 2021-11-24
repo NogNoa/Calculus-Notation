@@ -33,7 +33,6 @@ prv
 		}
 	}
 }
-
 form {a b * <drv-x> ?= a <drv-x> b * a b <drv-x> * +}
 
 prv 
@@ -63,7 +62,6 @@ prv
 		}
 	}
 }
-
 form {b ~ <drv-x> ?= b <drv-x> ~}
 form {b /div <drv-x> ?= b 1 ~ ^ <drv-x>}
 
@@ -95,7 +93,7 @@ prv { a b / <drv-x> ?= a <drv-x> a b <drv-x> b \ ~ * + b \ |
 	a <drv-x>          a b <drv-x> b \ ~ * + b \ ?=
 	}
 } 
-prv {a b /root <drv-x> : (\not x <inc-in> b) ?= a 1 b - b \  ^ a <drv-x> * b \ |
+prv {a b /root <drv-x>: (\not x <inc-in> b) ?= a 1 b - b \ ^ a <drv-x> * b \ |
 	{
 	a b /root <drv-x> ?=
 	a b /div ^ <drv-x> ?=
@@ -104,6 +102,24 @@ prv {a b /root <drv-x> : (\not x <inc-in> b) ?= a 1 b - b \  ^ a <drv-x> * b \ |
 	a 1 b - b   \   ^ a <drv-x> * b \ ?=
 	}
 }
+form {e a ^ <drv-x>: (e ?= <natural base>) ?= 
+	  e a ^ a <drv-x> *}
+
+prv {n a ^ <drv-x> : \not x <inc-in> n ?= n a ^ a <drv-x> * n e <log> * |
+	{
+	n             a ^ <drv-x> ?=
+   (e n e <log> ^) a ^ <drv-x> ?=
+	e n e <log>  a * ^ <drv-x> ?=
+	e n e <log>  a * ^ n e <log> a * <drv-x> * ?=
+	n             a ^ n e <log> <drv-x> a * n e <log> a <drv-x> * + *
+	n             a ^ 0               a * n e <log> a <drv-x> * + *
+	n			  a ^                     n e <log> a <drv-x> *   *
+	n			  a ^ a <drv-x> *           n e <log>             *
+	}
+}
+form {x e log <drv-x> ?= x /div}
+
+prv {a e log <drv-x> ?= a <drv-x> a \ |
 
 
 
