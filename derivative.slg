@@ -92,13 +92,14 @@ prv { b /div <drv-x> ?= b <drv-x> b 2 ^ \ ~ |
 	b <drv-x> b 2 ^ \         ~
 	}
 }
-prv { a b \ <drv-x> ?= a <drv-x> a b <drv-x> b \ * ~ + b \ |
+prv { a b \ <drv-x> ?= a <drv-x> a b <drv-x> * b \ - b \ |
 	{
 	a        b \      <drv-x> ?=
 	a        b /div * <drv-x> ?=
 	a <drv-x> b /div * a b /div <drv-x>      * + ?=
-	a <drv-x> b \      a b <drv-x> b 2 ^ \ ~ * + ?=
-	a <drv-x>          a b <drv-x> b     \ * ~ + b \ ?=
+	a <drv-x> b \      a b <drv-x>   b 2 ^ \ ~ * + ?=
+	a <drv-x>          a b <drv-x>   b     \ * ~ + b \ ?=
+	a <drv-x>          a b <drv-x> * b     \     - b \ ?=
 	}
 } 
 prv {a n /root <drv-x>: (\not x <inc-in> n) ?= a 1 n - n \ ^ a <drv-x> * n \ |
@@ -183,11 +184,18 @@ prv {x n ^ <drv-x> : (\not x <inc-in> n) ?= x n 1 - ^ n *
 	x n 1 - ^            n *
 	}
 }
-prv { x a \ <drv-x> ?= a <drv-x> a b <drv-x> b \ * ~ + b \ |
+prv {x a \ <drv-x> ?= x a <drv-x> a \ - a \ |
 	{
 	x a \ <drv-x> ?=
-	x <drv-x> x a <drv-x> a \ * ~ + a \
-	
+	x <drv-x> x a <drv-x> * a \ - a \ ?=
+	         x a <drv-x>   a \ - a \
+}
+prv {a x \ <drv-x> ?= a <drv-x> a x \ - x \ |
+	{
+	a x \ <drv-x> ?=
+	a <drv-x> a x <drv-x> * x \ - x \ ?=
+	a <drv-x> a            x \ - x \
+	}
 }
 prv {n x ^ <drv-x> : /not x <inc-in> n ?= n x ^ n e <log> * |
 	{
