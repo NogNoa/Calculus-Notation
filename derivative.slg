@@ -2,9 +2,9 @@ form {0 a - ?= a ~}
 form {1 a / ?= a /div}
 
 prim {<operator> <derivative>}
-form {a x <drivative>: <formula> a, x}
+form {a x <derivative>: <formula> a, x}
 let  {\all <formula> c, x: \not x <inc-in> c; c x <derivative> = 0}
-form {a <drv-x> ?= a x <drivative>}
+form {a <drv-x> ?= a x <derivative>}
 form {a b + <drv-x> ?= a <drv-x> b <drv-x> +}
 
 prv 
@@ -94,19 +94,19 @@ prv { a b \ <drv-x> ?= a <drv-x> a b <drv-x> b \ * ~ + b \ |
 	a <drv-x>          a b <drv-x> b     \ * ~ + b \ ?=
 	}
 } 
-prv {a b /root <drv-x>: (\not x <inc-in> b) ?= a 1 b - b \ ^ a <drv-x> * b \ |
+prv {a n /root <drv-x>: (\not x <inc-in> n) ?= a 1 n - n \ ^ a <drv-x> * n \ |
 	{
-	a b /root <drv-x> ?=
-	a b /div ^ <drv-x> ?=
-	a b /div 1    - ^ a <drv-x> * b /div * ?=
-	a 1 b \ b b \ - ^ a <drv-x> * b \ ?=
-	a 1 b - b   \   ^ a <drv-x> * b \ ?=
+	a n /root <drv-x> ?=
+	a n /div ^ <drv-x> ?=
+	a n /div 1    - ^ a <drv-x> * n /div * ?=
+	a 1 n \ n n \ - ^ a <drv-x> * n \ ?=
+	a 1 n - n   \   ^ a <drv-x> * n \ ?=
 	}
 }
 form {e a ^ <drv-x>: (e ?= <natural base>) ?= 
 	  e a ^ a <drv-x> *}
 
-prv {n a ^ <drv-x> : \not x <inc-in> n ?= n a ^ a <drv-x> * n e <log> * |
+prv {n a ^ <drv-x> : /not x <inc-in> n ?= n a ^ a <drv-x> * n e <log> * |
 	{
 	n             a ^ <drv-x> ?=
    (e n e <log> ^) a ^ <drv-x> ?=
@@ -118,7 +118,9 @@ prv {n a ^ <drv-x> : \not x <inc-in> n ?= n a ^ a <drv-x> * n e <log> * |
 	n			  a ^ a <drv-x> *           n e <log>             *
 	}
 }
-form {a e <log> <drv-x> ?= a <drv-x> a \}}
+prv {n a /root : (\not x <inc-in> n) ?= |
+}
+form {a e <log> <drv-x> ?= a <drv-x> a \}
 
 prv {a n <log> <drv-x> ?= a <drv-x> a \ n e <log> \ |
 	{
@@ -132,7 +134,16 @@ prv {a n <log> <drv-x> ?= a <drv-x> a \ n e <log> \ |
 	}
 }
 
-prv {n a <log> <drv-x> ?= a e <log> x \ x e <log> a <drv-x> * a \ - n * a e <log> 2 ^ \ |
+prv {n a <log> <drv-x> : (\not x <inc-in> n) ?= a <drv-x> a \ a 2 * e <log> \ ~ |
+	{
+	n a <log> <drv-x> ?=
+	a n <log> /div <drv-x> ?=
+	a n <log> <drv-x> a n <log> 2 ^ \ ~
+	a <drv-x> a \ n e <log> \ a n <log> 2 ^ \ ~
+	a <drv-x> a \ e n <log> * a 2 * n <log> \ ~
+	a <drv-x> a \ e          a 2 *   <log> * ~
+	a <drv-x> a \            a 2 * e <log> \ ~
+	}
 }
 
 /* wolfram reads it as (n x * a <log> <drv-x>) */
