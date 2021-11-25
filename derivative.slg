@@ -118,11 +118,18 @@ prv {n a ^ <drv-x> : /not x <inc-in> n ?= n a ^ a <drv-x> * n e <log> * |
 	n			  a ^ a <drv-x> *           n e <log>             *
 	}
 }
-prv {n a /root : (\not x <inc-in> n) ?= |
+prv {n a /root <drv-x> : (\not x <inc-in> n) ?= n a /root a <drv-x> * n e <log> * a 2 ^ \ ~ |
+	{
+	n a 	 /root <drv-x> ?=
+	n a /div ^ 	   <drv-x> ?=
+	n a /div ^ a /div <drv-x>        * n e <log> * ?=
+	n a /root  a <drv-x>   a 2 ^ \ ~ * n e <log> * ?=
+	n a /root  a <drv-x> * a 2 ^ \     n e <log> * ~ ?=
+	}
 }
-form {a e <log> <drv-x> ?= a <drv-x> a \}
+form {a e <log> <drv-x>  ?= a <drv-x> a \}
 
-prv {a n <log> <drv-x> ?= a <drv-x> a \ n e <log> \ |
+prv {a n <log> <drv-x> : (\not x <inc-in> n) ?= a <drv-x> a \ n e <log> \ |
 	{
 	a n <log> <drv-x> ?=
 	a e <log> n e <log> \ <drv-x> ?=
@@ -146,4 +153,56 @@ prv {n a <log> <drv-x> : (\not x <inc-in> n) ?= a <drv-x> a \ a 2 * e <log> \ ~ 
 	}
 }
 
-/* wolfram reads it as (n x * a <log> <drv-x>) */
+prv 
+{x n * <drv-x>: (\not x <inc-in> n) ?= n |
+	{
+	x n * <drv-x> ?=
+	x <drv-x> n * ?=
+	1        n * ?=
+			 n
+}
+prv {x n ^ <drv-x> : (\not x <inc-in> n) ?= x n 1 - ^ n *
+	{
+	x n ^ <drv-x> ?=
+	x n 1 - ^ x <drv-x> * n * ?=
+	x n 1 - ^ 1        * n * ?=
+	x n 1 - ^            n *
+	}
+}
+prv {n x ^ <drv-x> : /not x <inc-in> n ?= n x ^ n e <log> * |
+	{
+	n x ^ <drv-x> ?=
+	n x ^ x <drv-x> * n e <log> * ?=
+	n x ^ 1        * n e <log> * ?=
+	n x ^            n e <log> *
+	}
+}
+prv {x n /root <drv-x>: (\not x <inc-in> n) ?= x 1 n - n \ ^ n \ |
+	{
+	x n /root <drv-x> ?=
+	x 1 n - n \ ^ x <drv-x> * n \ ?=
+	x 1 n - n \ ^            n \
+	}
+}
+prv {n x /root <drv-x> : (\not x <inc-in> n) ?= n x /root n e <log> * x 2 ^ \ ~ |
+	{
+	n x /root <drv-x> ?=
+	n x /root x <drv-x> * n e <log> * x 2 ^ \ ~ ?=
+	n x /root            n e <log> * x 2 ^ \ ~
+}
+prv {x n <log> <drv-x> ?= x n e <log> * /div \
+	{
+	x n <log> <drv-x> ?=
+	x <drv-x> x \ n e <log> \ ?=
+	1		 x \ n e <log> \ ?=
+		     x   n e <log> * /div
+	}
+}
+prv {n x <log> <drv-x> : (\not x <inc-in> n) ?= x 2 * e <log> a * ~ /div |
+	{
+	x <log> <drv-x> ?=
+	x <drv-x> a \ x 2 * e <log>   \ ~ ?=
+	1        a \ x 2 * e <log>   \ ~ ?=
+	             x 2 * e <log> a * ~ /div
+	}
+}
