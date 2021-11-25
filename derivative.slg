@@ -63,7 +63,14 @@ prv
 		}
 	}
 }
-form {b ~ <drv-x> ?= b <drv-x> ~}
+prv {b ~ <drv-x> ?= b <drv-x> ~|
+	{
+	b   ~   <drv-x> ?=
+	b 1 ~ * <drv-x> ?=
+	b <drv-x> 1 ~ * ?=
+	b <drv-x>   ~
+}
+
 form {b /div <drv-x> ?= b 1 ~ ^ <drv-x>}
 
 prv { a b - <drv-x> ?= a <drv-x> b <drv-x> - |
@@ -161,6 +168,13 @@ prv
 	1        n * ?=
 			 n
 }
+prv {a x * <drv-x> ?= a <drv-x> x * a +|
+	{
+	a x * <drv-x> ?=
+	a <drv-x> x * a x <drv-x> * + ?=
+	a <drv-x> x * a 1		   * + ?=
+	a <drv-x> x * a  		     +
+}
 prv {x n ^ <drv-x> : (\not x <inc-in> n) ?= x n 1 - ^ n *
 	{
 	x n ^ <drv-x> ?=
@@ -168,6 +182,12 @@ prv {x n ^ <drv-x> : (\not x <inc-in> n) ?= x n 1 - ^ n *
 	x n 1 - ^ 1        * n * ?=
 	x n 1 - ^            n *
 	}
+}
+prv { x a \ <drv-x> ?= a <drv-x> a b <drv-x> b \ * ~ + b \ |
+	{
+	x a \ <drv-x> ?=
+	x <drv-x> x a <drv-x> a \ * ~ + a \
+	
 }
 prv {n x ^ <drv-x> : /not x <inc-in> n ?= n x ^ n e <log> * |
 	{
