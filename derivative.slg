@@ -71,8 +71,6 @@ prv {b ~ <drv-x> ?= b <drv-x> ~|
 	b <drv-x>   ~
 }
 
-form {b /div <drv-x> ?= b 1 ~ ^ <drv-x>}
-
 prv { a b - <drv-x> ?= a <drv-x> b <drv-x> - |
 	{
 	a        b -   <drv-x> ?=
@@ -161,6 +159,37 @@ prv {n a <log> <drv-x> : (\not x <inc-in> n) ?= a <drv-x> a \ a 2 * e <log> \ ~ 
 	}
 }
 
+prv { a b ^ <drv-x> ?= a b ^ a <drv-x> b * a \ a e <log> b <drv-x> * + * |
+	{
+	  a          b   ^ <drv-x> ?=
+	e a e <log> ^ b   ^ <drv-x> ?=
+	e a e <log>   b * ^ <drv-x> ?=
+	e a e <log>   b * ^ a e <log> b * <drv-x>                       * ?=
+	a            b   ^ a e <log> <drv-x> b * a e <log> b <drv-x> * + * ?=
+	a            b   ^ a <drv-x> a \    b * a e <log> b <drv-x> * + *
+	}
+}
+prv { a b <root> <drv-x> ?=a b <root> a <drv-x> b \ a \ a e <log> b <drv-x> * b 2 ^ \ - * |
+	{
+	a b <root>  <drv-x> ?=
+	a b /div ^ <drv-x> ?=
+	a b /div ^ a <drv-x> b /div * a \ a e <log> b /div <drv-x> * + * ?=
+	a b <root>  a <drv-x> b \      a \ a e <log> b <drv-x>   b 2 ^ \ ~ * + * ?=
+	a b <root>  a <drv-x> b \      a \ a e <log> b <drv-x> * b 2 ^ \ ~   + * ?=
+	a b <root>  a <drv-x> b \      a \ a e <log> b <drv-x> * b 2 ^ \ -     * ?=
+	}
+}
+prv { a b <log> <drv-x> ?= a <drv-x> a \ a b <log> b <drv-x> * b \ - b e <log> \ |
+	{
+	a b <log> <drv-x> ?=
+	a e <log>                 b e <log> \ <drv-x> ?=
+	a e <log> <drv-x> a e <log> b e <log> <drv-x> * b e <log> \ - b e <log> \ ?=
+	a <drv-x> a \    a e <log> b <drv-x>   b \  * b e <log> \ - b e <log> \ ?=
+	a <drv-x> a \    a e <log> b <drv-x> * b \    b e <log> \ - b e <log> \ ?=
+	a <drv-x> a \    a b <log> b <drv-x> * b \               - b e <log> \ ?=
+	}
+}
+
 prv 
 {x n * <drv-x>: (\not x <inc-in> n) ?= n |
 	{
@@ -232,5 +261,32 @@ prv {n x <log> <drv-x> : (\not x <inc-in> n) ?= x 2 * e <log> a * ~ /div |
 	x <drv-x> a \ x 2 * e <log>   \ ~ ?=
 	1        a \ x 2 * e <log>   \ ~ ?=
 	             x 2 * e <log> a * ~ /div
+	}
+}
+prv { x x ^ <drv-x> ?= x x ^ 1 x e <log> + * |
+	{
+	x x ^   <drv-x> ?=
+	x x ^ x <drv-x> x * x \ x e <log> x <drv-x> * + * ?=
+	x x ^          x   x \ x e <log>            + * ?=
+	x x ^          1       x e <log>            + * ?=
+}
+prv { x x <root> <drv-x> ?= x x <div> 2 - ^ e x \ e <log> * |
+	{
+	x x <root> <drv-x> ?=
+	x x <root> x <drv-x> x \ x \ x e <log> x <drv-x> *  x 2 ^ \ - * ?=
+	x x <root> 1        x \ x \ x e <log>             x 2 ^ \ - * ?=
+	x x <root> 1        x 2 ^ \ x e <log>             x 2 ^ \ - * ?=
+	x x <root> 1                x e <log>         -   x 2 ^ \   * ?=
+	x x <root>      e e <log>    x e <log>         - * x 2 ^ \     ?=
+	x x <div>     ^ e           x \ e <log>         * x 2 ^ \     ?=
+	x x <div> 2 - ^ e           x \ e <log>         *             ?=
+	}
+}
+prv { x x <log> <drv-x> ?= 1 x x <log> - x \ x e <log> \ |
+	{
+	x x <log> <drv-x> ?=
+	x <drv-x> x \ x x <log> x <drv-x> * x \ - x e <log> \ ?=
+	1        x \ x x <log>            x \ - x e <log> \ ?=
+	1            x x <log>          - x \   x e <log> \ ?=
 	}
 }
